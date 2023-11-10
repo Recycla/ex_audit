@@ -1,9 +1,9 @@
 defmodule ExAudit.Type.Action do
   use Ecto.Type
 
-  @type t() :: :created | :updated | :deleted
+  @type t() :: :created | :updated | :deleted | :noted
 
-  @actions ~w[created updated deleted]a
+  @actions [:created, :updated, :deleted, :noted]
 
   for action <- @actions do
     def cast(unquote(Atom.to_string(action))) do
